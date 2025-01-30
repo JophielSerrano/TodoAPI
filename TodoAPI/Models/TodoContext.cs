@@ -10,5 +10,13 @@ namespace TodoAPI.Models
         }
 
         public DbSet<TodoItem> TodoItems { get; set; } = null!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+    modelBuilder.Entity<TodoItem>().HasData(
+    new TodoItem { Id = 1, Name = "quiz#2", IsComplete = false }
+    );
+     }
     }
+    
 }
